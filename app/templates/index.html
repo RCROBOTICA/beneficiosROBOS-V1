@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Benefícios Eventuais</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+   
+</head>
+<body>
+<!--<div class="p-4 bg-dark fixed-bottom"></div>-->
+
+    <!-- ESSA DIV REFERE-SE A FAIXA PRETA E AO BOTÃO DE CADASTRAR-->
+    <div class="p-3 mb-2 bg-dark text-dark text-center">
+       <h1> <p class="text-light bg-dark">SECRETARIA DE SAÚDE DE MATA DE SÃO JOÃO</p></h1>
+        <h3><p class="text-light bg-dark">Benefícios Eventuais</p></h3>
+    </div>
+
+
+    <div class="col-6 m-auto pt-2 pb-2 ">
+      <form method="get">
+          <input type="text" id="search" name="search" class="form-control" placeholder="Pesquisar por Protocolo..." value="{{search}}">
+      </form>
+    </div>
+
+
+<!--AQUI FICA A DIV PRINCIPAL -->
+<div class="container">
+   <table class="table table-success table-striped">
+        <thead class="table">
+        <tr>
+
+            <th scope="col">Protocolo</th>
+            <th scope="col">Solicitação</th>
+            <th scope="col">Análise</th>
+            <th scope="col">Contemplado</th>
+            <th scope="col">Não Contemplado</th>
+            <th scope="col">Lista Medição</th>
+            <th scope="col">Recebido</th>
+
+
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for dbs in data %}
+            <tr>
+                <td>{{dbs.protocolo}}</td>
+                <td>{{dbs.solicitacao}}</td>
+                <td>{{dbs.a}}</td>
+                <td>{{dbs.c}}</td>
+                <td>{{dbs.nc}}</td>
+                <td>{{dbs.lm}}</td>
+                <td>{{dbs.r}}</td>
+
+            <td>
+<!--                <a href="/view/{{dbs.id}}/" class="btn btn-outline-success">Imprimir</a>-->
+                <a href="https://www.youtube.com/watch?v=EjmrartZeYM" class="btn btn-outline-primary">Assista o Vídeo Explicativo</a>
+<!--                <a href="/delete/{{dbs.id}}/" class="btn btn-outline-danger btnDel">Deletar</a>-->
+            </td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+    </div>
+</div>
+<div class="col-10 m-auto pt-5 pb-2 "><h1>Entendendo cada etapa da sua solicitação</h1>
+
+    <p class="text-primary"><b>Protocolo:</b><br>Quando o usuário do serviço solicita abertura de Protocolo é gerado um número, e esse número é chamado de  (Número do Protocolo!)</p>
+    <p class="text-secondary"><b>Solicitação:</b><br>É referente ao tipo de Benefício que foi solicitatdo, exmplo: (Fralda Geriátrica, Cadeira de Rodas, Óculos de Grau etc.)!</p>
+    <p class="text-primary"><b>Análise:</b><br>Esse é o momento em que sua solicitação está sendo analisada pela Assistência Social ou pela Comissão Analisadora!</p>
+    <p class="text-success"><b>Contemplado:</b><br>Esse é o momento em que, ou a Assistência Social ou a Comissão analisadora deferiu parecer favorável, logo após esse deferimento o beneficiado receberá instruções para aquisição do Benefício !</p>
+    <p class="text-danger"><b>Não Contemplado:</b><br>Esse status significa que o requerente não disponibiliza perfil para recebimento do benefício!</p>
+    <p class="text-warning"><b>Lista de Medição:</b><br>Esse status refere-se a solicitação de Óculos que, após ser Contemplado o mesmo aguarda para experimentar os modelos dos óculos, para posteriormente receber o benefício!</p>
+    <p class="text-info"><b>Recebido:</b><br>É quando de fato o requerente ja está em posse do seu Benefício!</p>
+
+</div>
+    {% load static %}
+    <script src="{% static 'javascript.js' %}"></script>
+
+</body>
+</html>

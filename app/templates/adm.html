@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Benefícios Eventuais</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+
+</head>
+<body>
+
+
+
+<!--<div class="p-4 bg-dark fixed-bottom"></div>-->
+
+    <!-- ESSA DIV REFERE-SE A FAIXA PRETA-->
+    <div class="p-3 mb-2 bg-dark text-dark">
+        <div class="col-8 m-auto pt-3 pb-2 ">
+        <a href="/form" class="btn btn-outline-success">Cadastrar Protocolo</a>
+        </div>
+    </div>
+
+
+
+    <div class="col-6 m-auto pt-2 pb-2 ">
+      <form method="get">
+          <input type="text" id="search" name="search" class="form-control" placeholder="Pesquisar por Protocolo..." value="{{search}}">
+      </form>
+    </div>
+
+
+<!--AQUI FICA A DIV PRINCIPAL -->
+    <div class="container">
+       <table class="table table-success table-striped">
+            <thead class="table">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Protocolo</th>
+                    <th scope="col">Solicitação</th>
+                    <th scope="col">Análise</th>
+                    <th scope="col">Contemplado</th>
+                    <th scope="col">Não Contemplado</th>
+                    <th scope="col">Lista Medição</th>
+                    <th scope="col">Recebido</th>
+
+
+
+
+                </tr>
+            </thead>
+<tbody>
+            {% for dbs in data %}
+                 <tr>
+                    <th>{{dbs.id}}</th>
+                    <td>{{dbs.protocolo}}</td>
+                    <td>{{dbs.solicitacao}}</td>
+                    <td>{{dbs.a}}</td>
+                    <td>{{dbs.c}}</td>
+                    <td>{{dbs.nc}}</td>
+                    <td>{{dbs.lm}}</td>
+                    <td>{{dbs.r}}</td>
+
+
+                 <td>
+
+                    <a href="/view/{{dbs.id}}/" class="btn btn-outline-success">Imprimir</a>
+                    <a href="/edit/{{dbs.id}}/" class="btn btn-outline-primary">Editar</a>
+                    <a href="/delete/{{dbs.id}}/" class="btn btn-outline-danger btnDel">Deletar</a>
+                </td>
+                 </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+        </div>
+    </div>
+        {% load static %}
+        <script src="{% static 'javascript.js' %}"></script>
+
+</body>
+</html>
